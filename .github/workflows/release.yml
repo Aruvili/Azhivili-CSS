@@ -58,9 +58,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Update version in package.json
-        run: npm version ${{ needs.validate.outputs.version }} --no-git-tag-version
-        
+      - name: Sync version from tag (only if different)
+        run: |
+              PKG_VERSION=$(node -p "require('./package.json').version")
+              TAG_VERSION='${{ needs.validate.outputs.version }}'
+              if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+                echo "Updating package.json version $PKG_VERSION -> $TAG_VERSION"
+                npm version "$TAG_VERSION" --no-git-tag-version
+              else
+                echo "Package version already $TAG_VERSION; skipping bump."
+              fi
+
       - name: Build framework
         run: npm run build:all
         
