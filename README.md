@@ -15,14 +15,14 @@ A comprehensive, production-ready utility-first CSS framework with Tamil class n
 ## Installation (நிறுவல்)
 
 ### NPM
-\`\`\`bash
+```bash
 npm install azhivili-css
-\`\`\`
+```
 
 ### CDN
-\`\`\`html
+```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/azhivili-css/dist/azhivili-css.min.css">
-\`\`\`
+```
 
 ### Download
 Download the latest release from [GitHub Releases](https://github.com/Aruvili/azhivili-css/releases)
@@ -30,7 +30,7 @@ Download the latest release from [GitHub Releases](https://github.com/Aruvili/az
 ## Usage (பயன்பாடு)
 
 ### Basic HTML Structure
-\`\`\`html
+```html
 <!DOCTYPE html>
 <html lang="ta">
 <head>
@@ -46,7 +46,7 @@ Download the latest release from [GitHub Releases](https://github.com/Aruvili/az
     </div>
 </body>
 </html>
-\`\`\`
+```
 
 ### Class Name Structure (வகுப்பு பெயர் அமைப்பு)
 
@@ -94,11 +94,11 @@ Use breakpoint prefixes for responsive design:
 - `பெ:` - Large screens (1024px+)
 - `மி:` - Extra large screens (1280px+)
 
-\`\`\`html
+```html
 <div class="ப-4 சி:ப-6 ந:ப-8 பெ:ப-12">
     Responsive padding
 </div>
-\`\`\`
+```
 
 ### State Modifiers (நிலை மாற்றிகள்)
 
@@ -106,11 +106,11 @@ Use breakpoint prefixes for responsive design:
 - `கவ:` - Focus state
 - `செ:` - Active state
 
-\`\`\`html
+```html
 <button class="பி-நீலம்-500 மேல்:பி-நீலம்-600 கவ:எ-2">
     Button with hover and focus states
 </button>
-\`\`\`
+```
 
 ## Color System (நிற அமைப்பு)
 
@@ -126,17 +126,17 @@ Use breakpoint prefixes for responsive design:
 - `சாம்பல்` (Gray) - 50 to 900 shades
 
 ### Usage Examples
-\`\`\`html
+```html
 <div class="நி-சிவப்பு-500">Red text</div>
 <div class="பி-பச்சை-100">Light green background</div>
 <div class="எல்-நீலம்-600">Blue border</div>
-\`\`\`
+```
 
 ## Customization (தனிப்பயனாக்கம்)
 
 ### Using SCSS Variables
 
-\`\`\`scss
+```scss
 // Override default variables
 $colors: (
   // Add your custom colors
@@ -147,11 +147,11 @@ $colors: (
 
 // Import the framework
 @import 'azhivili-css/scss/main';
-\`\`\`
+```
 
 ### Creating Custom Utilities
 
-\`\`\`scss
+```scss
 // Add custom utilities
 .என்வகுப்பு {
   // Your custom styles
@@ -159,7 +159,7 @@ $colors: (
 
 // Use framework mixins
 @include generate-utilities(margin-top, என்மே, $spacing-values);
-\`\`\`
+```
 
 ## Browser Support (உலாவி ஆதரவு)
 
@@ -188,7 +188,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Documentation (ஆவணங்கள்)
 
-For detailed documentation, visit: [https://azhivili-css.dev](https://azhivili-css.dev)
+For detailed documentation, visit: [Documentation](https://github.com/Aruvili/azhivili-css)
 
 ## Support (ஆதரவு)
 
