@@ -1,17 +1,11 @@
 {
   "name": "azhivili-css",
   "version": "1.0.0",
-  "description": "A comprehensive utility-first CSS framework with Tamil class names -(அழிவிலி-CSS) தமிழ் வகுப்பு பெயர்களுடன் கூடிய விரிவான பயன்பாட்டு-முதல் CSS கட்டமைப்பு",
+  "description": "A comprehensive utility-first CSS framework with Tamil class names - தமிழ் வகுப்பு பெயர்களுடன் கூடிய விரிவான பயன்பாட்டு-முதல் CSS கட்டமைப்பு",
   "main": "dist/azhivili-css.css",
   "style": "dist/azhivili-css.css",
   "sass": "azhivili/main.scss",
-  "files": [
-    "dist/",
-    "azhivili/",
-    "README.md",
-    "LICENSE",
-    "CHANGELOG.md"
-  ],
+  "files": ["dist/", "azhivili/", "README.md", "LICENSE", "CHANGELOG.md"],
   "scripts": {
     "build": "sass azhivili/main.scss dist/azhivili-css.css --style=expanded --source-map && postcss dist/azhivili-css.css --use autoprefixer -o dist/azhivili-css.css",
     "build:compressed": "sass azhivili/main.scss dist/azhivili-css.min.css --style=compressed --no-source-map && postcss dist/azhivili-css.min.css --use autoprefixer -o dist/azhivili-css.min.css",
@@ -21,11 +15,16 @@
     "lint": "stylelint \"azhivili/**/*.scss\" --fix",
     "lint:check": "stylelint \"azhivili/**/*.scss\"",
     "lint:windows": "stylelint azhivili/**/*.scss",
+    "lint:fix": "stylelint \"azhivili/**/*.scss\" --fix",
     "test": "npm run build:all && npm run lint:check",
+    "test:fix": "npm run build:all && npm run lint:fix",
     "test:windows": "npm run build:all && npm run lint:windows",
     "clean": "rimraf dist/*",
     "prepublishOnly": "npm run clean && npm run build:all && npm run test",
-    "serve": "live-server docs --port=3000 --open=/index.html"
+    "serve": "live-server docs --port=3000 --open=/index.html",
+    "deps:fix": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install",
+    "deps:check": "npm outdated",
+    "deps:audit": "npm audit --audit-level=moderate"
   },
   "keywords": [
     "css",
@@ -53,7 +52,7 @@
   "homepage": "https://github.com/Aruvili/azhivili-css",
   "devDependencies": {
     "autoprefixer": "^10.4.16",
-    "live-server": "^1.2.0",
+    "live-server": "^1.2.2",
     "postcss": "^8.4.32",
     "postcss-cli": "^11.0.0",
     "rimraf": "^5.0.5",
@@ -61,12 +60,7 @@
     "stylelint": "^16.0.2",
     "stylelint-config-standard-scss": "^13.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ],
+  "browserslist": ["> 1%", "last 2 versions", "not dead", "not ie 11"],
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=8.0.0"
