@@ -1,0 +1,203 @@
+// ===========================================
+// Transform Utilities (மாற்றம் பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+// Transform Base
+.மா-இல்லை {
+  transform: none;
+}
+
+// Scale Utilities (அளவிடு பயன்பாடுகள்)
+$scales: (
+  0: 0,
+  50: 0.5,
+  75: 0.75,
+  90: 0.9,
+  95: 0.95,
+  100: 1,
+  105: 1.05,
+  110: 1.1,
+  125: 1.25,
+  150: 1.5
+);
+
+@each $key, $value in $scales {
+  .அள-#{$key} {
+    transform: scale(#{$value});
+  }
+  
+  .அள்x-#{$key} {
+    transform: scaleX(#{$value});
+  }
+  
+  .அள்y-#{$key} {
+    transform: scaleY(#{$value});
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:அள-#{$key} {
+        transform: scale(#{$value});
+      }
+      
+      .#{$breakpoint-name}\:அள்x-#{$key} {
+        transform: scaleX(#{$value});
+      }
+      
+      .#{$breakpoint-name}\:அள்y-#{$key} {
+        transform: scaleY(#{$value});
+      }
+    }
+  }
+}
+
+// Rotate Utilities (சுழற்று பயன்பாடுகள்)
+$rotations: (
+  0: 0deg,
+  1: 1deg,
+  2: 2deg,
+  3: 3deg,
+  6: 6deg,
+  12: 12deg,
+  45: 45deg,
+  90: 90deg,
+  180: 180deg
+);
+
+@each $key, $value in $rotations {
+  .சு-#{$key} {
+    transform: rotate(#{$value});
+  }
+  
+  .-சு-#{$key} {
+    transform: rotate(-#{$value});
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:சு-#{$key} {
+        transform: rotate(#{$value});
+      }
+      
+      .#{$breakpoint-name}\:-சு-#{$key} {
+        transform: rotate(-#{$value});
+      }
+    }
+  }
+}
+
+// Translate Utilities (மொழிபெயர்ப்பு பயன்பாடுகள்)
+$translate-values: map.merge($spacing-values, (
+  1_2: 50%,
+  1_3: 33.333333%,
+  2_3: 66.666667%,
+  1_4: 25%,
+  2_4: 50%,
+  3_4: 75%,
+  முழு: 100%
+));
+
+@each $key, $value in $translate-values {
+  .மொகி-#{$key} {
+    transform: translateX(#{$value});
+  }
+  
+  .மொசெ-#{$key} {
+    transform: translateY(#{$value});
+  }
+  
+  .-மொகி-#{$key} {
+    transform: translateX(-#{$value});
+  }
+  
+  .-மொசெ-#{$key} {
+    transform: translateY(-#{$value});
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:மொகி-#{$key} {
+        transform: translateX(#{$value});
+      }
+      
+      .#{$breakpoint-name}\:மொசெ-#{$key} {
+        transform: translateY(#{$value});
+      }
+      
+      .#{$breakpoint-name}\:-மொகி-#{$key} {
+        transform: translateX(-#{$value});
+      }
+      
+      .#{$breakpoint-name}\:-மொசெ-#{$key} {
+        transform: translateY(-#{$value});
+      }
+    }
+  }
+}
+
+// Skew Utilities (சாய்வு பயன்பாடுகள்)
+$skews: (
+  0: 0deg,
+  1: 1deg,
+  2: 2deg,
+  3: 3deg,
+  6: 6deg,
+  12: 12deg
+);
+
+@each $key, $value in $skews {
+  .சாய்x-#{$key} {
+    transform: skewX(#{$value});
+  }
+  
+  .சாய்y-#{$key} {
+    transform: skewY(#{$value});
+  }
+  
+  .-சாய்x-#{$key} {
+    transform: skewX(-#{$value});
+  }
+  
+  .-சாய்y-#{$key} {
+    transform: skewY(-#{$value});
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:சாய்x-#{$key} {
+        transform: skewX(#{$value});
+      }
+      
+      .#{$breakpoint-name}\:சாய்y-#{$key} {
+        transform: skewY(#{$value});
+      }
+      
+      .#{$breakpoint-name}\:-சாய்x-#{$key} {
+        transform: skewX(-#{$value});
+      }
+      
+      .#{$breakpoint-name}\:-சாய்y-#{$key} {
+        transform: skewY(-#{$value});
+      }
+    }
+  }
+}
+
+// Transform Origin Utilities (மாற்றம் தோற்றம்)
+$transform-origins: (
+  மையம்: center,
+  மே: top,
+  மேவ: top right,
+  வ: right,
+  கீவ: bottom right,
+  கீ: bottom,
+  கீஇ: bottom left,
+  இ: left,
+  மேஇ: top left
+);
+
+@include generate-responsive-utilities(transform-origin, மாதோ, $transform-origins);

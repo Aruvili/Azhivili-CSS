@@ -1,0 +1,65 @@
+// ===========================================
+// அழிவிலி-CSS Framework - Main Entry Point
+// அழிவிலி-CSS கட்டமைப்பு - முக்கிய நுழைவு புள்ளி
+// ===========================================
+
+// Use modern @use instead of @import
+@use 'abstracts/variables' as *;
+@use 'abstracts/functions' as *;
+@use 'abstracts/mixins' as *;
+
+// Use Base
+@use 'base/reset';
+
+// Use Utilities
+@use 'utilities/spacing';
+@use 'utilities/sizing';
+@use 'utilities/typography';
+@use 'utilities/colors';
+@use 'utilities/layout';
+@use 'utilities/flexbox';
+@use 'utilities/grid';
+@use 'utilities/borders';
+@use 'utilities/effects';
+@use 'utilities/transforms';
+@use 'utilities/transitions';
+@use 'utilities/interactivity';
+
+// Framework Information
+/*! 
+ * அழிவிலி-CSS Framework v1.0.0
+ * அழிவிலி-CSS கட்டமைப்பு v1.0.0
+ * 
+ * A comprehensive utility-first CSS framework with Tamil class names
+ * தமிழ் வகுப்பு பெயர்களுடன் கூடிய விரிவான பயன்பாட்டு-முதல் CSS கட்டமைப்பு
+ * 
+ * Features:
+ * - Tamil language class names (தமிழ் மொழி வகுப்பு பெயர்கள்)
+ * - Responsive design utilities (பதிலளிக்கும் வடிவமைப்பு பயன்பாடுகள்)
+ * - Modern CSS features (நவீன CSS அம்சங்கள்)
+ * - Production-ready SCSS architecture (உற்பத்தி-தயார் SCSS கட்டமைப்பு)
+ * - Comprehensive color system (விரிவான நிற அமைப்பு)
+ * - Flexible spacing and sizing (நெகிழ்வான இடைவெளி மற்றும் அளவு)
+ * - Complete typography system (முழுமையான எழுத்துரு அமைப்பு)
+ * - Advanced layout utilities (மேம்பட்ட அமைப்பு பயன்பாடுகள்)
+ * 
+ * Usage:
+ * Include this CSS file in your HTML:
+ * <link rel="stylesheet" href="path/to/azhivili-css.css">
+ * 
+ * Example classes:
+ * .ப-4        -> padding: 1rem
+ * .ம-2        -> margin: 0.5rem
+ * .நி-சிவப்பு-500 -> color: red-500
+ * .பி-நீலம்-600  -> background: blue-600
+ * .கா-நெகிழ்     -> display: flex
+ * .நியஉ-மையம்   -> justify-content: center
+ * 
+ * Responsive usage:
+ * .சி:ப-8      -> padding: 2rem on small screens and up
+ * .ந:கா-கட்டம்   -> display: grid on medium screens and up
+ * 
+ * State modifiers:
+ * .மேல்:பி-சிவப்பு-600:hover -> background: red-600 on hover
+ * .கவ:எ-2:focus -> border-width: 2px on focus
+ */

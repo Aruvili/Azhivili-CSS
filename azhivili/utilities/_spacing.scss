@@ -1,0 +1,123 @@
+// ===========================================
+// Spacing Utilities (இடைவெளி பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+// Padding Utilities (பேடிங் பயன்பாடுகள்)
+@include generate-responsive-utilities(padding, ப, $spacing-values);
+
+// Padding Left (பேடிங் இடது)
+@include generate-responsive-utilities(padding-left, பஇ, $spacing-values);
+
+// Padding Right (பேடிங் வலது)
+@include generate-responsive-utilities(padding-right, பவ, $spacing-values);
+
+// Padding Top (பேடிங் மேல்)
+@include generate-responsive-utilities(padding-top, பமே, $spacing-values);
+
+// Padding Bottom (பேடிங் கீழ்)
+@include generate-responsive-utilities(padding-bottom, பகீ, $spacing-values);
+
+// Padding X-axis (கிடைமட்ட பேடிங்)
+@each $key, $value in $spacing-values {
+  .பகி-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:பகி-#{$key} {
+        padding-left: $value;
+        padding-right: $value;
+      }
+    }
+  }
+}
+
+// Padding Y-axis (செங்குத்து பேடிங்)
+@each $key, $value in $spacing-values {
+  .பசெ-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:பசெ-#{$key} {
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+    }
+  }
+}
+
+// Margin Utilities (மார்ஜின் பயன்பாடுகள்)
+$margin-values: map.merge($spacing-values, (தானியங்கி: auto));
+@include generate-responsive-utilities(margin, ம, $margin-values);
+
+// Negative Margins (எதிர்மறை மார்ஜின்கள்)
+@each $key, $value in $spacing-values {
+  @if $key != 0 {
+    .-ம-#{$key} {
+      margin: -#{$value};
+    }
+    
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @include respond-to($breakpoint-name) {
+        .#{$breakpoint-name}\:-ம-#{$key} {
+          margin: -#{$value};
+        }
+      }
+    }
+  }
+}
+
+// Margin Left (மார்ஜின் இடது)
+@include generate-responsive-utilities(margin-left, மஇ, $margin-values);
+
+// Margin Right (மார்ஜின் வலது)
+@include generate-responsive-utilities(margin-right, மவ, $margin-values);
+
+// Margin Top (மார்ஜின் மேல்)
+@include generate-responsive-utilities(margin-top, மமே, $margin-values);
+
+// Margin Bottom (மார்ஜின் கீழ்)
+@include generate-responsive-utilities(margin-bottom, மகீ, $margin-values);
+
+// Margin X-axis (கிடைமட்ட மார்ஜின்)
+@each $key, $value in $margin-values {
+  .மகி-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:மகி-#{$key} {
+        margin-left: $value;
+        margin-right: $value;
+      }
+    }
+  }
+}
+
+// Margin Y-axis (செங்குத்து மார்ஜின்)
+@each $key, $value in $margin-values {
+  .மசெ-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:மசெ-#{$key} {
+        margin-top: $value;
+        margin-bottom: $value;
+      }
+    }
+  }
+}

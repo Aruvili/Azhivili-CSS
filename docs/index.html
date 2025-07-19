@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>அழிவிலி-CSS Framework - தமிழ் CSS கட்டமைப்பு</title>
+    <meta name="description" content="அழிவிலி-CSS - A comprehensive utility-first CSS framework with Tamil class names - தமிழ் வகுப்பு பெயர்களுடன் கூடிய விரிவான பயன்பாட்டு-முதல் CSS கட்டமைப்பு">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="அழிவிலி-CSS Framework">
+    <meta property="og:description" content="A comprehensive utility-first CSS framework with Tamil class names">
+    <meta property="og:image" content="https://azhivili-css.dev/og-image.png">
+    <meta property="og:url" content="https://azhivili-css.dev">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="அழிவிலி-CSS Framework">
+    <meta name="twitter:description" content="A comprehensive utility-first CSS framework with Tamil class names">
+    <meta name="twitter:image" content="https://azhivili-css.dev/twitter-card.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- CSS Framework -->
+    <link rel="stylesheet" href="../dist/azhivili-css.css">
+    
+    <!-- Custom Documentation Styles -->
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            color: #f8f8f2;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        
+        .feature-card {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="எஎ-சாதாரண வஉ-சாதாரண நி-சாம்பல்-900">
+    <!-- Header -->
+    <header class="பி-வெள்ளை நிபெ-சி எ-கீ எல்-சாம்பல்-200">
+        <nav class="அதிஅ-6xl மகி-தானியங்கி பகி-4 பசெ-4">
+            <div class="கா-நெகிழ் நியஉ-இடையே உசீ-மையம்">
+                <div class="கா-நெகிழ் உசீ-மையம் கஇ-2">
+                    <h1 class="எஅ-மிபெ எஎ-தடிமன் நி-சாம்பல்-900">அழிவிலி-CSS</h1>
+                    <span class="எஅ-சி நி-சாம்பல்-600">v1.0.0</span>
+                </div>
+                
+                <div class="கா-நெகிழ் கஇ-6">
+                    <a href="#docs" class="நி-சாம்பல்-700 மேல்:நி-சாம்பல்-900">Documentation</a>
+                    <a href="#examples" class="நி-சாம்பல்-700 மேல்:நி-சாம்பல்-900">Examples</a>
+                    <a href="https://github.com/Aruvili/azhivili-css" class="நி-சாம்பல்-700 மேல்:நி-சாம்பல்-900">GitHub</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient நி-வெள்ளை பசெ-20">
+        <div class="அதிஅ-6xl மகி-தானியங்கி பகி-4 உசீ-மையம்">
+            <h1 class="எஅ-5மிபெ எஎ-தடிமன் ம-கீ-6">
+                அழிவிலி-CSS Framework
+            </h1>
+            <p class="எஅ-மிபெ ம-கீ-4">
+                தமிழ் வகுப்பு பெயர்களுடன் கூடிய விரிவான பயன்பாட்டு-முதல் CSS கட்டமைப்பு
+            </p>
+            <p class="எஅ-பெ ம-கீ-8 ஒ-90">
+                A comprehensive utility-first CSS framework with Tamil class names
+            </p>
+            
+            <div class="கா-நெகிழ் கஇ-4 நியஉ-மையம் நெம-மடிப்பு">
+                <a href="#get-started" class="பி-வெள்ளை நி-சாம்பல்-900 பகி-6 பசெ-3 எவள்-பெ எஎ-நடுத்தர மேல்:பி-சாம்பல்-100 மாற்-நிறங்கள்">
+                    Get Started
+                </a>
+                <a href="https://github.com/Aruvili/azhivili-css" class="எ-2 எல்-வெள்ளை நி-வெள்ளை பகி-6 பசெ-3 எவள்-பெ எஎ-நடுத்தர மேல்:பி-வெள்ளை மேல்:நி-சாம்பல்-900 மாற்-நிறங்கள்">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="get-started" class="பசெ-16 பி-சாம்பல்-50">
+        <div class="அதிஅ-6xl மகி-தானியங்கி பகி-4">
+            <h2 class="எஅ-3மிபெ எஎ-தடிமன் உசீ-மையம் ம-கீ-12">Quick Start</h2>
+            
+            <div class="கவநெ-1 ந:கவநெ-3 கஇ-8">
+                <!-- NPM -->
+                <div class="பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4">NPM</h3>
+                    <div class="code-block ப-4 எவள்-நடு">
+                        <code>npm install azhivili-css</code>
+                    </div>
+                </div>
+                
+                <!-- CDN -->
+                <div class="பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4">CDN</h3>
+                    <div class="code-block ப-4 எவள்-நடு">
+                        <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/azhivili-css@latest/dist/azhivili-css.min.css"&gt;</code>
+                    </div>
+                </div>
+                
+                <!-- Download -->
+                <div class="பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4">Download</h3>
+                    <a href="https://github.com/Aruvili/azhivili-css/releases/latest" class="பி-நீலம்-500 நி-வெள்ளை பகி-4 பசெ-2 எவள்-நடு கா-உள்ளீடுதொகுதி மேல்:பி-நீலம்-600 மாற்-நிறங்கள்">
+                        Download Latest
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="பசெ-16">
+        <div class="அதிஅ-6xl மகி-தானியங்கி பகி-4">
+            <h2 class="எஅ-3மிபெ எஎ-தடிமன் உசீ-மையம் ம-கீ-12">Features</h2>
+            
+            <div class="கவநெ-1 ந:கவநெ-2 பெ:கவநெ-3 கஇ-8">
+                <div class="feature-card பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4 நி-நீலம்-600">Tamil Class Names</h3>
+                    <p class="நி-சாம்பல்-600">All utility classes use Tamil names for better localization and cultural relevance.</p>
+                </div>
+                
+                <div class="feature-card பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4 நி-பச்சை-600">Production Ready</h3>
+                    <p class="நி-சாம்பல்-600">Optimized SCSS architecture with proper organization and build tools.</p>
+                </div>
+                
+                <div class="feature-card பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4 நி-ஊதா-600">Responsive Design</h3>
+                    <p class="நி-சாம்பல்-600">Mobile-first responsive utilities with Tamil breakpoint names.</p>
+                </div>
+                
+                <div class="feature-card பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4 நி-சிவப்பு-600">Modern CSS</h3>
+                    <p class="நி-சாம்பல்-600">Uses latest CSS features including Grid, Flexbox, and custom properties.</p>
+                </div>
+                
+                <div class="feature-card பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4 நி-மஞ்சள்-600">Comprehensive</h3>
+                    <p class="நி-சாம்பல்-600">Complete set of utilities for spacing, typography, colors, and layout.</p>
+                </div>
+                
+                <div class="feature-card பி-வெள்ளை ப-6 எவள்-பெ நிபெ-சி">
+                    <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-4 நி-இளஞ்சிவப்பு-600">Customizable</h3>
+                    <p class="நி-சாம்பல்-600">Easy to customize and extend with SCSS variables and mixins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example Section -->
+    <section id="examples" class="பசெ-16 பி-சாம்பல்-50">
+        <div class="அதிஅ-6xl மகி-தானியங்கி பகி-4">
+            <h2 class="எஅ-3மிபெ எஎ-தடிமன் உசீ-மையம் ம-கீ-12">Examples</h2>
+            
+            <div class="பி-வெள்ளை ப-8 எவள்-பெ நிபெ-சி">
+                <h3 class="எஅ-மிபெ எஎ-அரைதடிமன் ம-கீ-6">Basic Card Component</h3>
+                
+                <!-- Live Example -->
+                <div class="ம-கீ-6">
+                    <div class="அதிஅ-சி பி-வெள்ளை நிபெ-பெ எவள்-பெ பெருக்கம்-மறைக்கப்பட்ட">
+                        <img src="/placeholder.svg?height=200&width=400" alt="Demo" class="அ-முழு உ-48 பி-சாம்பல்-200">
+                        <div class="ப-6">
+                            <h4 class="எஅ-பெ எஎ-அரைதடிமன் ம-கீ-2">அழிவிலி-CSS Card</h4>
+                            <p class="நி-சாம்பல்-600 ம-கீ-4">This is a sample card built with அழிவிலி-CSS Framework utilities.</p>
+                            <button class="பி-நீலம்-500 நி-வெள்ளை பகி-4 பசெ-2 எவள்-நடு மேல்:பி-நீலம்-600 மாற்-நிறங்கள்">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Code Example -->
+                <div class="code-block ப-6 எவள்-நடு">
+                    <pre><code>&lt;div class="அதிஅ-சி பி-வெள்ளை நிபெ-பெ எவள்-பெ பெருக்கம்-மறைக்கப்பட்ட"&gt;
+  &lt;img src="image.jpg" alt="Demo" class="அ-முழு உ-48 பி-சாம்பல்-200"&gt;
+  &lt;div class="ப-6"&gt;
+    &lt;h4 class="எஅ-பெ எஎ-அரைதடிமன் ம-கீ-2"&gt;Card Title&lt;/h4&gt;
+    &lt;p class="நி-சாம்பல்-600 ம-கீ-4"&gt;Card description&lt;/p&gt;
+    &lt;button class="பி-நீலம்-500 நி-வெள்ளை பகி-4 பசெ-2 எவள்-நடு"&gt;
+      Learn More
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="பி-சாம்பல்-900 நி-வெள்ளை பசெ-12">
+        <div class="அதிஅ-6xl மகி-தானியங்கி பகி-4">
+            <div class="கவநெ-1 ந:கவநெ-4 கஇ-8">
+                <div>
+                    <h3 class="எஅ-பெ எஎ-அரைதடிமன் ம-கீ-4">அழிவிலி-CSS Framework</h3>
+                    <p class="நி-சாம்பல்-400">தமிழ் வகுப்பு பெயர்களுடன் கூடிய CSS கட்டமைப்பு</p>
+                </div>
+                
+                <div>
+                    <h4 class="எஎ-அரைதடிமன் ம-கீ-4">Resources</h4>
+                    <ul class="கஇ-2">
+                        <li><a href="#" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Documentation</a></li>
+                        <li><a href="#" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Examples</a></li>
+                        <li><a href="#" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Playground</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="எஎ-அரைதடிமன் ம-கீ-4">Community</h4>
+                    <ul class="கஇ-2">
+                        <li><a href="https://github.com/Aruvili/azhivili-css" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">GitHub</a></li>
+                        <li><a href="#" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Discord</a></li>
+                        <li><a href="#" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Twitter</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="எஎ-அரைதடிமன் ம-கீ-4">Support</h4>
+                    <ul class="கஇ-2">
+                        <li><a href="https://github.com/Aruvili/azhivili-css/issues" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Issues</a></li>
+                        <li><a href="https://github.com/Aruvili/azhivili-css/discussions" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Discussions</a></li>
+                        <li><a href="#" class="நி-சாம்பல்-400 மேல்:நி-வெள்ளை">Contributing</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="எ-மே எல்-சாம்பல்-800 ம-மே-8 ப-மே-8 உசீ-மையம்">
+                <p class="நி-சாம்பல்-400">© 2024 அழிவிலி-CSS Framework. Released under MIT License.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

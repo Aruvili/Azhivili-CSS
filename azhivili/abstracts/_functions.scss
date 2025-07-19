@@ -1,0 +1,74 @@
+// ===========================================
+// Tamil CSS Framework Functions
+// ===========================================
+
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:list';
+@use 'sass:math';
+@use 'variables' as *;
+
+// Get Color Function
+@function get-color($color-name, $shade: 500) {
+  @if map.has-key($colors, $color-name) {
+    $color-map: map.get($colors, $color-name);
+    @if meta.type-of($color-map) == map {
+      @if map.has-key($color-map, $shade) {
+        @return map.get($color-map, $shade);
+      } @else {
+        @warn "Shade #{$shade} not found for color #{$color-name}";
+        @return null;
+      }
+    } @else {
+      @return $color-map;
+    }
+  } @else {
+    @warn "Color #{$color-name} not found";
+    @return null;
+  }
+}
+
+// Get Spacing Function
+@function get-spacing($key) {
+  @if map.has-key($spacing-values, $key) {
+    @return map.get($spacing-values, $key);
+  } @else {
+    @warn "Spacing value #{$key} not found";
+    @return null;
+  }
+}
+
+// Get Font Size Function
+@function get-font-size($size) {
+  @if map.has-key($font-sizes, $size) {
+    $font-data: map.get($font-sizes, $size);
+    @return list.nth($font-data, 1);
+  } @else {
+    @warn "Font size #{$size} not found";
+    @return null;
+  }
+}
+
+// Get Line Height Function
+@function get-line-height($size) {
+  @if map.has-key($font-sizes, $size) {
+    $font-data: map.get($font-sizes, $size);
+    @return list.nth($font-data, 2);
+  } @else {
+    @warn "Font size #{$size} not found";
+    @return null;
+  }
+}
+
+// Convert to rem Function
+@function to-rem($px-value, $base-font-size: 16px) {
+  @return ($px-value / $base-font-size) * 1rem;
+}
+
+// Strip Unit Function
+@function strip-unit($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}

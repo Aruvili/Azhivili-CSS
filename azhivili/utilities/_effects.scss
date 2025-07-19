@@ -1,0 +1,125 @@
+// ===========================================
+// Effects Utilities (விளைவு பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Box Shadow Utilities (பெட்டி நிழல் பயன்பாடுகள்)
+@each $key, $value in $box-shadows {
+  @if $key == default {
+    .நிபெ {
+      box-shadow: $value;
+    }
+  } @else {
+    .நிபெ-#{$key} {
+      box-shadow: $value;
+    }
+  }
+}
+
+// Opacity Utilities (ஒளிபுகாமை பயன்பாடுகள்)
+@include generate-responsive-utilities(opacity, ஒ, $opacity);
+
+// Mix Blend Mode Utilities (கலப்பு கலவை முறை)
+$mix-blend-modes: (
+  சாதாரண: normal,
+  பெருக்கு: multiply,
+  திரை: screen,
+  மேலடுக்கு: overlay,
+  இருண்ட: darken,
+  ஒளிர்: lighten,
+  நிறமுறி: color-dodge,
+  நிறஎரி: color-burn,
+  கடினஒளி: hard-light,
+  மென்ஒளி: soft-light,
+  வேறுபாடு: difference,
+  விலக்கு: exclusion,
+  வண்ணம்: hue,
+  நிறைவு: saturation,
+  நிறம்: color,
+  ஒளிர்வு: luminosity
+);
+
+@include generate-utilities(mix-blend-mode, கலகல, $mix-blend-modes);
+
+// Background Blend Mode Utilities (பின்னணி கலப்பு முறை)
+@include generate-utilities(background-blend-mode, பிகல, $mix-blend-modes);
+
+// Filter Utilities (வடிகட்டி பயன்பாடுகள்)
+.வடி-இல்லை {
+  filter: none;
+}
+
+.வடி-மங்கல் {
+  filter: blur(8px);
+}
+
+.வடி-பிரகாசம் {
+  filter: brightness(1.25);
+}
+
+.வடி-மாறுபாடு {
+  filter: contrast(1.25);
+}
+
+.வடி-நிழல் {
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+}
+
+.வடி-சாம்பல் {
+  filter: grayscale(100%);
+}
+
+.வடி-வண்ணமாற்று {
+  filter: hue-rotate(90deg);
+}
+
+.வடி-தலைகீழ் {
+  filter: invert(100%);
+}
+
+.வடி-நிறைவு {
+  filter: saturate(1.5);
+}
+
+.வடி-செபியா {
+  filter: sepia(100%);
+}
+
+// Backdrop Filter Utilities (பின்னணி வடிகட்டி)
+.பின்வடி-இல்லை {
+  backdrop-filter: none;
+}
+
+.பின்வடி-மங்கல் {
+  backdrop-filter: blur(8px);
+}
+
+.பின்வடி-பிரகாசம் {
+  backdrop-filter: brightness(1.25);
+}
+
+.பின்வடி-மாறுபாடு {
+  backdrop-filter: contrast(1.25);
+}
+
+.பின்வடி-சாம்பல் {
+  backdrop-filter: grayscale(100%);
+}
+
+.பின்வடி-வண்ணமாற்று {
+  backdrop-filter: hue-rotate(90deg);
+}
+
+.பின்வடி-தலைகீழ் {
+  backdrop-filter: invert(100%);
+}
+
+.பின்வடி-நிறைவு {
+  backdrop-filter: saturate(1.5);
+}
+
+.பின்வடி-செபியா {
+  backdrop-filter: sepia(100%);
+}

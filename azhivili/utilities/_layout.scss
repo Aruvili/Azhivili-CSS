@@ -1,0 +1,103 @@
+// ===========================================
+// Layout Utilities (அமைப்பு பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+// Display Utilities (காட்சி பயன்பாடுகள்)
+$displays: (
+  தொகுதி: block,
+  உள்ளீடுதொகுதி: inline-block,
+  உள்ளீடு: inline,
+  நெகிழ்: flex,
+  உள்ளீடுநெகிழ்: inline-flex,
+  அட்டவணை: table,
+  உள்ளீடுஅட்டவணை: inline-table,
+  அட்டவணைசெல்: table-cell,
+  அட்டவணைநெடுவரிசை: table-column,
+  அட்டவணைநெடுவரிசைகுழு: table-column-group,
+  அட்டவணைஅடிக்குறிப்பு: table-footer-group,
+  அட்டவணைதலைப்புகுழு: table-header-group,
+  அட்டவணைவரிசைகுழு: table-row-group,
+  அட்டவணைவரிசை: table-row,
+  ஓட்டம்: flow-root,
+  கட்டம்: grid,
+  உள்ளீடுகட்டம்: inline-grid,
+  உள்ளடக்கங்கள்: contents,
+  பட்டியல்உருப்படி: list-item,
+  மறைக்கப்பட்ட: none
+);
+
+@include generate-responsive-utilities(display, கா, $displays);
+
+// Position Utilities (நிலை பயன்பாடுகள்)
+$positions: (
+  நிலையான: static,
+  நிலையானது: fixed,
+  முழுமையான: absolute,
+  உறவினர்: relative,
+  ஒட்டும்: sticky
+);
+
+@include generate-responsive-utilities(position, நி, $positions);
+
+// Top, Right, Bottom, Left Utilities
+$position-values: map.merge($spacing-values, (
+  தானியங்கி: auto,
+  1_2: 50%,
+  1_3: 33.333333%,
+  2_3: 66.666667%,
+  1_4: 25%,
+  2_4: 50%,
+  3_4: 75%,
+  முழு: 100%
+));
+
+@include generate-responsive-utilities(top, மே, $position-values);
+@include generate-responsive-utilities(right, வல, $position-values);
+@include generate-responsive-utilities(bottom, கீழ, $position-values);
+@include generate-responsive-utilities(left, இட, $position-values);
+
+// Z-Index Utilities
+@include generate-responsive-utilities(z-index, z, $z-index);
+
+// Float Utilities (மிதப்பு பயன்பாடுகள்)
+$floats: (
+  வலது: right,
+  இடது: left,
+  இல்லை: none
+);
+
+@include generate-responsive-utilities(float, மி, $floats);
+
+// Clear Utilities (அழிப்பு பயன்பாடுகள்)
+$clears: (
+  இடது: left,
+  வலது: right,
+  இரண்டும்: both,
+  இல்லை: none
+);
+
+@include generate-responsive-utilities(clear, அழி, $clears);
+
+// Overflow Utilities (பெருக்கம் பயன்பாடுகள்)
+$overflows: (
+  தானியங்கி: auto,
+  மறைக்கப்பட்ட: hidden,
+  காணக்கூடிய: visible,
+  உருள்: scroll
+);
+
+@include generate-responsive-utilities(overflow, பெ, $overflows);
+@include generate-responsive-utilities(overflow-x, பெx, $overflows);
+@include generate-responsive-utilities(overflow-y, பெy, $overflows);
+
+// Visibility Utilities (தெரிவு பயன்பாடுகள்)
+$visibilities: (
+  காணக்கூடிய: visible,
+  மறைக்கப்பட்ட: hidden
+);
+
+@include generate-responsive-utilities(visibility, தெ, $visibilities);

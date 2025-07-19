@@ -1,0 +1,142 @@
+// ===========================================
+// Background Utilities (பின்னணி பயன்பாடுகள்)
+// ===========================================
+
+// Background Size Utilities (பின்னணி அளவு)
+$background-sizes: (
+  தானியங்கி: auto,
+  மூடு: cover,
+  கொண்டு: contain
+);
+
+@include generate-responsive-utilities(background-size, பஅ, $background-sizes);
+
+// Background Position Utilities (பின்னணி நிலை)
+$background-positions: (
+  கீழ்: bottom,
+  மையம்: center,
+  இடது: left,
+  இடதுகீழ்: left bottom,
+  இடதுமேல்: left top,
+  வலது: right,
+  வலதுகீழ்: right bottom,
+  வலதுமேல்: right top,
+  மேல்: top
+);
+
+@include generate-responsive-utilities(background-position, பநி, $background-positions);
+
+// Background Repeat Utilities (பின்னணி மீண்டும்)
+$background-repeats: (
+  மீண்டும்: repeat,
+  இல்லை: no-repeat,
+  x: repeat-x,
+  y: repeat-y,
+  வட்டம்: round,
+  இடம்: space
+);
+
+@include generate-responsive-utilities(background-repeat, பமீ, $background-repeats);
+
+// Background Attachment Utilities (பின்னணி இணைப்பு)
+$background-attachments: (
+  நிலையான: fixed,
+  உள்ளூர்: local,
+  உருள்: scroll
+);
+
+@include generate-utilities(background-attachment, பஇ, $background-attachments);
+
+// Background Clip Utilities (பின்னணி வெட்டு)
+$background-clips: (
+  எல்லை: border-box,
+  பேடிங்: padding-box,
+  உள்ளடக்கம்: content-box,
+  உரை: text
+);
+
+@include generate-utilities(background-clip, பவெ, $background-clips);
+
+// Background Origin Utilities (பின்னணி தோற்றம்)
+$background-origins: (
+  எல்லை: border-box,
+  பேடிங்: padding-box,
+  உள்ளடக்கம்: content-box
+);
+
+@include generate-utilities(background-origin, பதோ, $background-origins);
+
+// Gradient Utilities (சாய்வு பயன்பாடுகள்)
+.சாய்வு-மேல் {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.சாய்வு-மேவ {
+  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+}
+
+.சாய்வு-வ {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.சாய்வு-கீவ {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.சாய்வு-கீ {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.சாய்வு-கீஇ {
+  background-image: linear-gradient(to bottom left, var(--tw-gradient-stops));
+}
+
+.சாய்வு-இ {
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+}
+
+.சாய்வு-மேஇ {
+  background-image: linear-gradient(to top left, var(--tw-gradient-stops));
+}
+
+// Radial Gradient
+.சாய்வு-வட்டம் {
+  background-image: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
+// Gradient Color Stops
+@each $color-name, $color-shades in $colors {
+  @if type-of($color-shades) == map {
+    @each $shade, $color-value in $color-shades {
+      .தொடக்கம்-#{$color-name}-#{$shade} {
+        --tw-gradient-from: #{$color-value};
+        --tw-gradient-to: rgb(from #{$color-value} r g b / 0);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      
+      .வழியாக-#{$color-name}-#{$shade} {
+        --tw-gradient-to: rgb(from #{$color-value} r g b / 0);
+        --tw-gradient-stops: var(--tw-gradient-from), #{$color-value}, var(--tw-gradient-to);
+      }
+      
+      .வரை-#{$color-name}-#{$shade} {
+        --tw-gradient-to: #{$color-value};
+      }
+    }
+  } @else {
+    .தொடக்கம்-#{$color-name} {
+      --tw-gradient-from: #{$color-shades};
+      --tw-gradient-to: rgb(from #{$color-shades} r g b / 0);
+      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    }
+    
+    .வழியாக-#{$color-name} {
+      --tw-gradient-to: rgb(from #{$color-shades} r g b / 0);
+      --tw-gradient-stops: var(--tw-gradient-from), #{$color-shades}, var(--tw-gradient-to);
+    }
+    
+    .வரை-#{$color-name} {
+      --tw-gradient-to: #{$color-shades};
+    }
+  }
+}

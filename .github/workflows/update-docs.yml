@@ -1,0 +1,59 @@
+name: Update Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'azhivili/**'
+      - 'docs/**'
+      - 'README.md'
+  workflow_dispatch:
+
+jobs:
+  update-docs:
+    name: Update Documentation Site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          npm ci
+          pip install -r requirements.txt || echo "No requirements.txt found"
+          
+      - name: Build framework
+        run: npm run build:all
+        
+      - name: Generate documentation
+        run: |
+          if [ -f "scripts/generate-docs.py" ]; then
+            python scripts/generate-docs.py
+          fi
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

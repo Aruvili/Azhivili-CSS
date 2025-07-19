@@ -1,0 +1,172 @@
+// ===========================================
+// Flexbox Utilities (நெகிழ்வு பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Flex Direction Utilities (நெகிழ்வு திசை)
+$flex-directions: (
+  வரிசை: row,
+  வரிசைதிரும்பு: row-reverse,
+  நெடுவரிசை: column,
+  நெடுவரிசைதிரும்பு: column-reverse
+);
+
+@include generate-responsive-utilities(flex-direction, நெதி, $flex-directions);
+
+// Flex Wrap Utilities (நெகிழ்வு மடிப்பு)
+$flex-wraps: (
+  மடிப்பு: wrap,
+  மடிப்புதிரும்பு: wrap-reverse,
+  மடிப்பில்லை: nowrap
+);
+
+@include generate-responsive-utilities(flex-wrap, நெம, $flex-wraps);
+
+// Flex Utilities (நெகிழ்வு)
+$flex-values: (
+  1: (1 1 0%),
+  தானியங்கி: (1 1 auto),
+  ஆரம்பம்: (0 1 auto),
+  இல்லை: none
+);
+
+@each $key, $value in $flex-values {
+  .நெ-#{$key} {
+    flex: $value;
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:நெ-#{$key} {
+        flex: $value;
+      }
+    }
+  }
+}
+
+// Flex Grow Utilities (நெகிழ்வு வளர்ச்சி)
+$flex-grows: (
+  default: 1,
+  0: 0
+);
+
+@each $key, $value in $flex-grows {
+  @if $key == default {
+    .நெவ {
+      flex-grow: $value;
+    }
+    
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @include respond-to($breakpoint-name) {
+        .#{$breakpoint-name}\:நெவ {
+          flex-grow: $value;
+        }
+      }
+    }
+  } @else {
+    .நெவ-#{$key} {
+      flex-grow: $value;
+    }
+    
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @include respond-to($breakpoint-name) {
+        .#{$breakpoint-name}\:நெவ-#{$key} {
+          flex-grow: $value;
+        }
+      }
+    }
+  }
+}
+
+// Flex Shrink Utilities (நெகிழ்வு சுருக்கம்)
+$flex-shrinks: (
+  default: 1,
+  0: 0
+);
+
+@each $key, $value in $flex-shrinks {
+  @if $key == default {
+    .நெசு {
+      flex-shrink: $value;
+    }
+    
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @include respond-to($breakpoint-name) {
+        .#{$breakpoint-name}\:நெசு {
+          flex-shrink: $value;
+        }
+      }
+    }
+  } @else {
+    .நெசு-#{$key} {
+      flex-shrink: $value;
+    }
+    
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @include respond-to($breakpoint-name) {
+        .#{$breakpoint-name}\:நெசு-#{$key} {
+          flex-shrink: $value;
+        }
+      }
+    }
+  }
+}
+
+// Justify Content Utilities (நியாயப்படுத்து உள்ளடக்கம்)
+$justify-contents: (
+  சாதாரண: normal,
+  தொடக்கம்: flex-start,
+  முடிவு: flex-end,
+  மையம்: center,
+  இடையே: space-between,
+  சுற்றிலும்: space-around,
+  சமமாக: space-evenly,
+  நீட்டு: stretch
+);
+
+@include generate-responsive-utilities(justify-content, நியஉ, $justify-contents);
+
+// Align Items Utilities (உருப்படிகளை சீரமைத்தல்)
+$align-items: (
+  தொடக்கம்: flex-start,
+  முடிவு: flex-end,
+  மையம்: center,
+  அடிப்படை: baseline,
+  நீட்டு: stretch
+);
+
+@include generate-responsive-utilities(align-items, உசீ, $align-items);
+
+// Align Content Utilities (உள்ளடக்கத்தை சீரமைத்தல்)
+$align-contents: (
+  சாதாரண: normal,
+  மையம்: center,
+  தொடக்கம்: flex-start,
+  முடிவு: flex-end,
+  இடையே: space-between,
+  சுற்றிலும்: space-around,
+  சமமாக: space-evenly,
+  அடிப்படை: baseline,
+  நீட்டு: stretch
+);
+
+@include generate-responsive-utilities(align-content, உஉசீ, $align-contents);
+
+// Align Self Utilities (சுய சீரமைப்பு)
+$align-selfs: (
+  தானியங்கி: auto,
+  தொடக்கம்: flex-start,
+  முடிவு: flex-end,
+  மையம்: center,
+  நீட்டு: stretch,
+  அடிப்படை: baseline
+);
+
+@include generate-responsive-utilities(align-self, சுசீ, $align-selfs);
+
+// Gap Utilities (இடைவெளி பயன்பாடுகள்)
+@include generate-responsive-utilities(gap, கஇ, $spacing-values);
+@include generate-responsive-utilities(row-gap, வகஇ, $spacing-values);
+@include generate-responsive-utilities(column-gap, நெகஇ, $spacing-values);

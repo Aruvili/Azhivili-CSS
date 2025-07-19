@@ -1,0 +1,179 @@
+// ===========================================
+// Border Utilities (எல்லை பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:meta';
+
+// Border Width Utilities (எல்லை அகல பயன்பாடுகள்)
+$border-widths: (
+  0: 0px,
+  2: 2px,
+  4: 4px,
+  8: 8px,
+  default: 1px
+);
+
+@each $key, $value in $border-widths {
+  @if $key == default {
+    .எ {
+      border-width: $value;
+    }
+    
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @include respond-to($breakpoint-name) {
+        .#{$breakpoint-name}\:எ {
+          border-width: $value;
+        }
+      }
+    }
+  } @else {
+    .எ-#{$key} {
+      border-width: $value;
+    }
+    
+    @each $breakpoint-name, $breakpoint-value in $breakpoints {
+      @include respond-to($breakpoint-name) {
+        .#{$breakpoint-name}\:எ-#{$key} {
+          border-width: $value;
+        }
+      }
+    }
+  }
+}
+
+// Individual Border Sides
+@each $key, $value in $border-widths {
+  @if $key == default {
+    .எமே { border-top-width: $value; }
+    .எவ { border-right-width: $value; }
+    .எகீ { border-bottom-width: $value; }
+    .எஇ { border-left-width: $value; }
+  } @else {
+    .எமே-#{$key} { border-top-width: $value; }
+    .எவ-#{$key} { border-right-width: $value; }
+    .எகீ-#{$key} { border-bottom-width: $value; }
+    .எஇ-#{$key} { border-left-width: $value; }
+  }
+}
+
+// Border Radius Utilities (எல்லை வளைவு பயன்பாடுகள்)
+@include generate-responsive-utilities(border-radius, எவள, $border-radius);
+
+// Individual Border Radius
+@each $key, $value in $border-radius {
+  .எவள்மேஇ-#{$key} {
+    border-top-left-radius: $value;
+  }
+  
+  .எவள்மேவ-#{$key} {
+    border-top-right-radius: $value;
+  }
+  
+  .எவள்கீவ-#{$key} {
+    border-bottom-right-radius: $value;
+  }
+  
+  .எவள்கீஇ-#{$key} {
+    border-bottom-left-radius: $value;
+  }
+  
+  .எவள்மே-#{$key} {
+    border-top-left-radius: $value;
+    border-top-right-radius: $value;
+  }
+  
+  .எவள்வ-#{$key} {
+    border-top-right-radius: $value;
+    border-bottom-right-radius: $value;
+  }
+  
+  .எவள்கீ-#{$key} {
+    border-bottom-right-radius: $value;
+    border-bottom-left-radius: $value;
+  }
+  
+  .எவள்இ-#{$key} {
+    border-top-left-radius: $value;
+    border-bottom-left-radius: $value;
+  }
+}
+
+// Border Style Utilities (எல்லை பாணி பயன்பாடுகள்)
+$border-styles: (
+  திட: solid,
+  புள்ளி: dashed,
+  புள்ளிகள்: dotted,
+  இரட்டை: double,
+  மறைக்கப்பட்ட: hidden,
+  இல்லை: none
+);
+
+@include generate-responsive-utilities(border-style, எபா, $border-styles);
+
+// Divide Utilities (பிரிப்பு பயன்பாடுகள்)
+.பிx > :not([hidden]) ~ :not([hidden]) {
+  border-right-width: 0;
+  border-left-width: 1px;
+}
+
+.பிy > :not([hidden]) ~ :not([hidden]) {
+  border-top-width: 1px;
+  border-bottom-width: 0;
+}
+
+@each $key, $value in $border-widths {
+  @if $key != default {
+    .பிx-#{$key} > :not([hidden]) ~ :not([hidden]) {
+      border-right-width: 0;
+      border-left-width: $value;
+    }
+    
+    .பிy-#{$key} > :not([hidden]) ~ :not([hidden]) {
+      border-top-width: $value;
+      border-bottom-width: 0;
+    }
+  }
+}
+
+// Ring Utilities (வளைய பயன்பாடுகள்)
+$ring-widths: (
+  0: 0px,
+  1: 1px,
+  2: 2px,
+  4: 4px,
+  8: 8px,
+  default: 3px
+);
+
+@each $key, $value in $ring-widths {
+  @if $key == default {
+    .வ {
+      box-shadow: var(--tw-ring-inset) 0 0 0 $value var(--tw-ring-color);
+    }
+  } @else {
+    .வ-#{$key} {
+      box-shadow: var(--tw-ring-inset) 0 0 0 $value var(--tw-ring-color);
+    }
+  }
+}
+
+.வ-உள்ளே {
+  --tw-ring-inset: inset;
+}
+
+// Ring Colors
+@each $color-name, $color-shades in $colors {
+  @if meta.type-of($color-shades) == map {
+    @each $shade, $color-value in $color-shades {
+      .வ-#{$color-name}-#{$shade} {
+        --tw-ring-color: #{$color-value};
+      }
+    }
+  } @else {
+    .வ-#{$color-name} {
+      --tw-ring-color: #{$color-shades};
+    }
+  }
+}

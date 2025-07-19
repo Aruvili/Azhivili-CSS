@@ -1,0 +1,87 @@
+// ===========================================
+// Sizing Utilities (அளவு பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:map';
+
+// Width Utilities (அகல பயன்பாடுகள்)
+$width-values: map.merge($spacing-values, (
+  தானியங்கி: auto,
+  1_2: 50%,
+  1_3: 33.333333%,
+  2_3: 66.666667%,
+  1_4: 25%,
+  2_4: 50%,
+  3_4: 75%,
+  1_5: 20%,
+  2_5: 40%,
+  3_5: 60%,
+  4_5: 80%,
+  1_6: 16.666667%,
+  2_6: 33.333333%,
+  3_6: 50%,
+  4_6: 66.666667%,
+  5_6: 83.333333%,
+  1_12: 8.333333%,
+  2_12: 16.666667%,
+  3_12: 25%,
+  4_12: 33.333333%,
+  5_12: 41.666667%,
+  6_12: 50%,
+  7_12: 58.333333%,
+  8_12: 66.666667%,
+  9_12: 75%,
+  10_12: 83.333333%,
+  11_12: 91.666667%,
+  முழு: 100%,
+  திரை: 100vw,
+  குறைந்தபட்சம்: min-content,
+  அதிகபட்சம்: max-content,
+  பொருத்தம்: fit-content
+));
+
+@include generate-responsive-utilities(width, அ, $width-values);
+
+// Height Utilities (உயர பயன்பாடுகள்)
+$height-values: map.merge($spacing-values, (
+  தானியங்கி: auto,
+  1_2: 50%,
+  1_3: 33.333333%,
+  2_3: 66.666667%,
+  1_4: 25%,
+  2_4: 50%,
+  3_4: 75%,
+  1_5: 20%,
+  2_5: 40%,
+  3_5: 60%,
+  4_5: 80%,
+  1_6: 16.666667%,
+  2_6: 33.333333%,
+  3_6: 50%,
+  4_6: 66.666667%,
+  5_6: 83.333333%,
+  முழு: 100%,
+  திரை: 100vh,
+  குறைந்தபட்சம்: min-content,
+  அதிகபட்சம்: max-content,
+  பொருத்தம்: fit-content
+));
+
+@include generate-responsive-utilities(height, உ, $height-values);
+
+// Min/Max Width and Height
+$min-max-values: (
+  0: 0px,
+  முழு: 100%,
+  குறைந்தபட்சம்: min-content,
+  அதிகபட்சம்: max-content,
+  பொருத்தம்: fit-content,
+  இல்லை: none
+);
+
+@include generate-responsive-utilities(min-width, குறைஅ, $min-max-values);
+@include generate-responsive-utilities(max-width, அதிஅ, $min-max-values);
+@include generate-responsive-utilities(min-height, குறைஉ, $min-max-values);
+@include generate-responsive-utilities(max-height, அதிஉ, $min-max-values);

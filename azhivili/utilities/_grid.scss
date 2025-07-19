@@ -1,0 +1,208 @@
+// ===========================================
+// Grid Utilities (கட்ட பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Grid Template Columns (கட்ட வார்ப்புரு நெடுவரிசைகள்)
+.கவநெ-இல்லை {
+  grid-template-columns: none;
+}
+
+@for $i from 1 through 12 {
+  .கவநெ-#{$i} {
+    grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:கவநெ-#{$i} {
+        grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+// Grid Template Rows (கட்ட வார்ப்புரு வரிசைகள்)
+.கவவ-இல்லை {
+  grid-template-rows: none;
+}
+
+@for $i from 1 through 6 {
+  .கவவ-#{$i} {
+    grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:கவவ-#{$i} {
+        grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+// Grid Column Span (கட்ட நெடுவரிசை விரிவு)
+.கநெவி-தானியங்கி {
+  grid-column: auto;
+}
+
+.கநெவி-முழு {
+  grid-column: 1 / -1;
+}
+
+@for $i from 1 through 12 {
+  .கநெவி-#{$i} {
+    grid-column: span #{$i} / span #{$i};
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:கநெவி-#{$i} {
+        grid-column: span #{$i} / span #{$i};
+      }
+    }
+  }
+}
+
+// Grid Row Span (கட்ட வரிசை விரிவு)
+.கவவி-தானியங்கி {
+  grid-row: auto;
+}
+
+.கவவி-முழு {
+  grid-row: 1 / -1;
+}
+
+@for $i from 1 through 6 {
+  .கவவி-#{$i} {
+    grid-row: span #{$i} / span #{$i};
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:கவவி-#{$i} {
+        grid-row: span #{$i} / span #{$i};
+      }
+    }
+  }
+}
+
+// Grid Column Start/End (கட்ட நெடுவரிசை தொடக்கம்/முடிவு)
+@for $i from 1 through 13 {
+  .கநெதொ-#{$i} {
+    grid-column-start: #{$i};
+  }
+  
+  .கநெமு-#{$i} {
+    grid-column-end: #{$i};
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:கநெதொ-#{$i} {
+        grid-column-start: #{$i};
+      }
+      
+      .#{$breakpoint-name}\:கநெமு-#{$i} {
+        grid-column-end: #{$i};
+      }
+    }
+  }
+}
+
+.கநெதொ-தானியங்கி {
+  grid-column-start: auto;
+}
+
+.கநெமு-தானியங்கி {
+  grid-column-end: auto;
+}
+
+// Grid Row Start/End (கட்ட வரிசை தொடக்கம்/முடிவு)
+@for $i from 1 through 7 {
+  .கவதொ-#{$i} {
+    grid-row-start: #{$i};
+  }
+  
+  .கவமு-#{$i} {
+    grid-row-end: #{$i};
+  }
+  
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      .#{$breakpoint-name}\:கவதொ-#{$i} {
+        grid-row-start: #{$i};
+      }
+      
+      .#{$breakpoint-name}\:கவமு-#{$i} {
+        grid-row-end: #{$i};
+      }
+    }
+  }
+}
+
+.கவதொ-தானியங்கி {
+  grid-row-start: auto;
+}
+
+.கவமு-தானியங்கி {
+  grid-row-end: auto;
+}
+
+// Grid Auto Flow (கட்ட தானியங்கி ஓட்டம்)
+$grid-auto-flows: (
+  வரிசை: row,
+  நெடுவரிசை: column,
+  அடர்த்தி: dense,
+  வரிசைஅடர்த்தி: row dense,
+  நெடுவரிசைஅடர்த்தி: column dense
+);
+
+@include generate-responsive-utilities(grid-auto-flow, கதாஓ, $grid-auto-flows);
+
+// Grid Auto Columns/Rows (கட்ட தானியங்கி நெடுவரிசைகள்/வரிசைகள்)
+$grid-auto-sizes: (
+  தானியங்கி: auto,
+  குறைந்தபட்சம்: min-content,
+  அதிகபட்சம்: max-content,
+  fr: 1fr
+);
+
+@include generate-responsive-utilities(grid-auto-columns, கதாநெ, $grid-auto-sizes);
+@include generate-responsive-utilities(grid-auto-rows, கதாவ, $grid-auto-sizes);
+
+// Place Items (இடம் உருப்படிகள்)
+$place-items: (
+  தொடக்கம்: start,
+  முடிவு: end,
+  மையம்: center,
+  நீட்டு: stretch
+);
+
+@include generate-responsive-utilities(place-items, இஉ, $place-items);
+
+// Place Content (இடம் உள்ளடக்கம்)
+$place-contents: (
+  தொடக்கம்: start,
+  முடிவு: end,
+  மையம்: center,
+  இடையே: space-between,
+  சுற்றிலும்: space-around,
+  சமமாக: space-evenly,
+  நீட்டு: stretch
+);
+
+@include generate-responsive-utilities(place-content, இஉள், $place-contents);
+
+// Place Self (இடம் சுயம்)
+$place-selfs: (
+  தானியங்கி: auto,
+  தொடக்கம்: start,
+  முடிவு: end,
+  மையம்: center,
+  நீட்டு: stretch
+);
+
+@include generate-responsive-utilities(place-self, இசு, $place-selfs);

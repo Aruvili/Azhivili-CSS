@@ -1,0 +1,118 @@
+// ===========================================
+// Color Utilities (நிற பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use 'sass:meta';
+
+// Text Color Utilities (உரை நிற பயன்பாடுகள்)
+@include generate-color-utilities(color, நி, $colors);
+
+// Background Color Utilities (பின்னணி நிற பயன்பாடுகள்)
+@include generate-color-utilities(background-color, பி, $colors);
+
+// Border Color Utilities (எல்லை நிற பயன்பாடுகள்)
+@include generate-color-utilities(border-color, எல், $colors);
+
+// Hover State Colors (மேல்நோக்கு நிலை நிறங்கள்)
+@each $color-name, $color-shades in $colors {
+  @if meta.type-of($color-shades) == map {
+    @each $shade, $color-value in $color-shades {
+      .மேல்\:நி-#{$color-name}-#{$shade}:hover {
+        color: $color-value;
+      }
+      
+      .மேல்\:பி-#{$color-name}-#{$shade}:hover {
+        background-color: $color-value;
+      }
+      
+      .மேல்\:எல்-#{$color-name}-#{$shade}:hover {
+        border-color: $color-value;
+      }
+    }
+  } @else {
+    .மேல்\:நி-#{$color-name}:hover {
+      color: $color-shades;
+    }
+    
+    .மேல்\:பி-#{$color-name}:hover {
+      background-color: $color-shades;
+    }
+    
+    .மேல்\:எல்-#{$color-name}:hover {
+      border-color: $color-shades;
+    }
+  }
+}
+
+// Focus State Colors (கவனம் நிலை நிறங்கள்)
+@each $color-name, $color-shades in $colors {
+  @if meta.type-of($color-shades) == map {
+    @each $shade, $color-value in $color-shades {
+      .கவ\:நி-#{$color-name}-#{$shade}:focus {
+        color: $color-value;
+      }
+      
+      .கவ\:பி-#{$color-name}-#{$shade}:focus {
+        background-color: $color-value;
+      }
+      
+      .கவ\:எல்-#{$color-name}-#{$shade}:focus {
+        border-color: $color-value;
+      }
+    }
+  }
+}
+
+// Active State Colors (செயலில் நிலை நிறங்கள்)
+@each $color-name, $color-shades in $colors {
+  @if meta.type-of($color-shades) == map {
+    @each $shade, $color-value in $color-shades {
+      .செ\:நி-#{$color-name}-#{$shade}:active {
+        color: $color-value;
+      }
+      
+      .செ\:பி-#{$color-name}-#{$shade}:active {
+        background-color: $color-value;
+      }
+      
+      .செ\:எல்-#{$color-name}-#{$shade}:active {
+        border-color: $color-value;
+      }
+    }
+  }
+}
+
+// Gradient Utilities (சாய்வு பயன்பாடுகள்)
+.சாய்வு-சிவப்பு {
+  background: linear-gradient(45deg, get-color(சிவப்பு, 400), get-color(சிவப்பு, 600));
+}
+
+.சாய்வு-பச்சை {
+  background: linear-gradient(45deg, get-color(பச்சை, 400), get-color(பச்சை, 600));
+}
+
+.சாய்வு-நீலம் {
+  background: linear-gradient(45deg, get-color(நீலம், 400), get-color(நீலம், 600));
+}
+
+.சாய்வு-ஊதா {
+  background: linear-gradient(45deg, get-color(ஊதா, 400), get-color(ஊதா, 600));
+}
+
+.சாய்வு-இளஞ்சிவப்பு {
+  background: linear-gradient(45deg, get-color(இளஞ்சிவப்பு, 400), get-color(இளஞ்சிவப்பு, 600));
+}
+
+// Color Opacity Utilities
+@each $opacity-name, $opacity-value in $opacity {
+  .நி-ஒளிபுகாமை-#{$opacity-name} {
+    color: rgb(from currentColor r g b / #{$opacity-value});
+  }
+  
+  .பி-ஒளிபுகாமை-#{$opacity-name} {
+    background-color: rgb(from currentColor r g b / #{$opacity-value});
+  }
+}

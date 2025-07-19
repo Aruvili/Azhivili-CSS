@@ -1,0 +1,133 @@
+// ===========================================
+// Tamil CSS Framework Mixins
+// ===========================================
+
+@use 'sass:map';
+@use 'sass:meta';
+@use 'variables' as *;
+
+// Responsive Breakpoint Mixin
+@mixin respond-to($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+// Generate Utility Classes Mixin
+@mixin generate-utilities($property, $class-prefix, $values, $important: false) {
+  @each $key, $value in $values {
+    .#{$class-prefix}-#{$key} {
+      #{$property}: $value if($important, !important, null);
+    }
+  }
+}
+
+// Generate Color Utilities Mixin
+@mixin generate-color-utilities($property, $class-prefix, $colors) {
+  @each $color-name, $color-shades in $colors {
+    @if meta.type-of($color-shades) == map {
+      @each $shade, $color-value in $color-shades {
+        .#{$class-prefix}-#{$color-name}-#{$shade} {
+          #{$property}: $color-value;
+        }
+      }
+    } @else {
+      .#{$class-prefix}-#{$color-name} {
+        #{$property}: $color-shades;
+      }
+    }
+  }
+}
+
+// Generate Responsive Utilities Mixin
+@mixin generate-responsive-utilities($property, $class-prefix, $values) {
+  // Base utilities
+  @include generate-utilities($property, $class-prefix, $values);
+  
+  // Responsive utilities
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    @include respond-to($breakpoint-name) {
+      @each $key, $value in $values {
+        .#{$breakpoint-name}\:#{$class-prefix}-#{$key} {
+          #{$property}: $value;
+        }
+      }
+    }
+  }
+}
+
+// Generate State Utilities Mixin
+@mixin generate-state-utilities($property, $class-prefix, $values, $state) {
+  @each $key, $value in $values {
+    .#{$state}\:#{$class-prefix}-#{$key}:#{$state} {
+      #{$property}: $value;
+    }
+  }
+}
+
+// Flexbox Utilities Mixin
+@mixin flex-utilities {
+  .நெ-1 { flex: 1 1 0%; }
+  .நெ-தானியங்கி { flex: 1 1 auto; }
+  .நெ-ஆரம்பம் { flex: 0 1 auto; }
+  .நெ-இல்லை { flex: none; }
+}
+
+// Grid Utilities Mixin
+@mixin grid-utilities {
+  @for $i from 1 through 12 {
+    .கவநெ-#{$i} {
+      grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+    }
+    
+    .கநெவி-#{$i} {
+      grid-column: span #{$i} / span #{$i};
+    }
+  }
+  
+  .கவநெ-இல்லை { grid-template-columns: none; }
+  .கநெவி-தானியங்கி { grid-column: auto; }
+  .கநெவி-முழு { grid-column: 1 / -1; }
+}
+
+// Transform Utilities Mixin
+@mixin transform-utilities {
+  .மா-இல்லை { transform: none; }
+  
+  // Scale
+  $scales: (0: 0, 50: 0.5, 75: 0.75, 90: 0.9, 95: 0.95, 100: 1, 105: 1.05, 110: 1.1, 125: 1.25, 150: 1.5);
+  @each $key, $value in $scales {
+    .அள-#{$key} { transform: scale(#{$value}); }
+  }
+  
+  // Rotate
+  $rotations: (0: 0deg, 1: 1deg, 2: 2deg, 3: 3deg, 6: 6deg, 12: 12deg, 45: 45deg, 90: 90deg, 180: 180deg);
+  @each $key, $value in $rotations {
+    .சு-#{$key} { transform: rotate(#{$value}); }
+    .-சு-#{$key} { transform: rotate(-#{$value}); }
+  }
+}
+
+// Transition Utilities Mixin
+@mixin transition-utilities {
+  .மாற்-இல்லை { transition-property: none; }
+  .மாற்-அனைத்தும { 
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    transition-duration: 150ms; 
+  }
+  .மாற்-நிறங்கள் { 
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    transition-duration: 150ms; 
+  }
+  
+  $durations: (75: 75ms, 100: 100ms, 150: 150ms, 200: 200ms, 300: 300ms, 500: 500ms, 700: 700ms, 1000: 1000ms);
+  @each $key, $value in $durations {
+    .மாகா-#{$key} { transition-duration: #{$value}; }
+  }
+}

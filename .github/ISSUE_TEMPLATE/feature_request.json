@@ -1,0 +1,103 @@
+{
+  "name": "✨ Feature Request",
+  "description": "Suggest a new feature for அழிவிலி-CSS Framework",
+  "title": "[Feature]: ",
+  "labels": ["enhancement", "needs-triage"],
+  "body": [
+    {
+      "type": "markdown",
+      "value": "## ✨ Feature Request\n\nThank you for suggesting a new feature for அழிவிலி-CSS Framework!"
+    },
+    {
+      "type": "textarea",
+      "id": "summary",
+      "attributes": {
+        "label": "Feature Summary",
+        "description": "A brief summary of the feature you'd like to see",
+        "placeholder": "I would like..."
+      },
+      "validations": {
+        "required": true
+      }
+    },
+    {
+      "type": "textarea",
+      "id": "motivation",
+      "attributes": {
+        "label": "Motivation",
+        "description": "Why would this feature be useful?",
+        "placeholder": "This would help with..."
+      },
+      "validations": {
+        "required": true
+      }
+    },
+    {
+      "type": "textarea",
+      "id": "solution",
+      "attributes": {
+        "label": "Proposed Solution",
+        "description": "How do you think this should be implemented?",
+        "placeholder": "I think we could..."
+      }
+    },
+    {
+      "type": "textarea",
+      "id": "alternatives",
+      "attributes": {
+        "label": "Alternatives Considered",
+        "description": "What other approaches have you considered?",
+        "placeholder": "I also considered..."
+      }
+    },
+    {
+      "type": "dropdown",
+      "id": "category",
+      "attributes": {
+        "label": "Category",
+        "description": "What category does this feature belong to?",
+        "options": [
+          "Utilities",
+          "Components",
+          "Layout",
+          "Typography",
+          "Colors",
+          "Effects",
+          "Responsive",
+          "Accessibility",
+          "Performance",
+          "Developer Experience",
+          "Documentation",
+          "Other"
+        ]
+      },
+      "validations": {
+        "required": true
+      }
+    },
+    {
+      "type": "checkboxes",
+      "id": "breaking",
+      "attributes": {
+        "label": "Breaking Change",
+        "description": "Would this be a breaking change?",
+        "options": [
+          {
+            "label": "This would be a breaking change",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "type": "textarea",
+      "id": "examples",
+      "attributes": {
+        "label": "Usage Examples",
+        "description": "Show how this feature would be used",
+        "render": "html",
+        "placeholder": "<div class=\"new-utility-class\">Example usage</div>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+// ===========================================
+// Interactivity Utilities (ஊடாடல் பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Cursor Utilities (கர்சர் பயன்பாடுகள்)
+$cursors: (
+  தானியங்கி: auto,
+  இயல்பு: default,
+  சுட்டி: pointer,
+  காத்திரு: wait,
+  உரை: text,
+  நகர்த்து: move,
+  உதவி: help,
+  தடை: not-allowed,
+  இல்லை: none,
+  சூழல்மெனு: context-menu,
+  முன்னேற்றம்: progress,
+  செல்: cell,
+  குறுக்குவெட்டு: crosshair,
+  செங்குத்துஉரை: vertical-text,
+  மாற்று: alias,
+  நகல்: copy,
+  பிடி: grab,
+  பிடித்தல்: grabbing,
+  அனைத்துஉருள்: all-scroll,
+  நெடுவரிசைஅளவு: col-resize,
+  வரிசைஅளவு: row-resize,
+  வடகிழக்குஅளவு: ne-resize,
+  வடமேற்குஅளவு: nw-resize,
+  தெற்குகிழக்குஅளவு: se-resize,
+  தென்மேற்குஅளவு: sw-resize,
+  கிழக்குஅளவு: e-resize,
+  வடஅளவு: n-resize,
+  தெற்குஅளவு: s-resize,
+  மேற்குஅளவு: w-resize,
+  கிழக்குமேற்குஅளவு: ew-resize,
+  வடதெற்குஅளவு: ns-resize,
+  வடகிழக்குதென்மேற்குஅளவு: nesw-resize,
+  வடமேற்குதெற்குகிழக்குஅளவு: nwse-resize,
+  பெரிதாக்கு: zoom-in,
+  சிறிதாக்கு: zoom-out
+);
+
+@include generate-responsive-utilities(cursor, கர், $cursors);
+
+// Pointer Events Utilities (சுட்டி நிகழ்வுகள்)
+$pointer-events: (
+  இல்லை: none,
+  தானியங்கி: auto
+);
+
+@include generate-utilities(pointer-events, சுநி, $pointer-events);
+
+// Resize Utilities (அளவு மாற்றம்)
+$resizes: (
+  இல்லை: none,
+  y: vertical,
+  x: horizontal,
+  இரண்டும்: both
+);
+
+@include generate-utilities(resize, அமா, $resizes);
+
+// Scroll Behavior Utilities (உருள் நடத்தை)
+$scroll-behaviors: (
+  தானியங்கி: auto,
+  மென்மை: smooth
+);
+
+@include generate-utilities(scroll-behavior, உநட், $scroll-behaviors);
+
+// Scroll Margin Utilities (உருள் மார்ஜின்)
+@include generate-utilities(scroll-margin, உம், $spacing-values);
+@include generate-utilities(scroll-margin-top, உமமே, $spacing-values);
+@include generate-utilities(scroll-margin-right, உமவ, $spacing-values);
+@include generate-utilities(scroll-margin-bottom, உமகீ, $spacing-values);
+@include generate-utilities(scroll-margin-left, உமஇ, $spacing-values);
+
+// Scroll Padding Utilities (உருள் பேடிங்)
+@include generate-utilities(scroll-padding, உப், $spacing-values);
+@include generate-utilities(scroll-padding-top, உபமே, $spacing-values);
+@include generate-utilities(scroll-padding-right, உபவ, $spacing-values);
+@include generate-utilities(scroll-padding-bottom, உபகீ, $spacing-values);
+@include generate-utilities(scroll-padding-left, உபஇ, $spacing-values);
+
+// Scroll Snap Utilities (உருள் பிடிப்பு)
+$scroll-snap-types: (
+  இல்லை: none,
+  x: x var(--tw-scroll-snap-strictness),
+  y: y var(--tw-scroll-snap-strictness),
+  இரண்டும்: both var(--tw-scroll-snap-strictness)
+);
+
+@each $key, $value in $scroll-snap-types {
+  .உபி-#{$key} {
+    scroll-snap-type: $value;
+  }
+}
+
+$scroll-snap-aligns: (
+  தொடக்கம்: start,
+  முடிவு: end,
+  மையம்: center,
+  சீரமைப்பு: align
+);
+
+@include generate-utilities(scroll-snap-align, உபிசீ, $scroll-snap-aligns);
+
+$scroll-snap-stops: (
+  சாதாரண: normal,
+  எப்போதும்: always
+);
+
+@include generate-utilities(scroll-snap-stop, உபிநி, $scroll-snap-stops);
+
+// Touch Action Utilities (தொடுதல் செயல்)
+$touch-actions: (
+  தானியங்கி: auto,
+  இல்லை: none,
+  பான்x: pan-x,
+  பான்இ: pan-left,
+  பான்வ: pan-right,
+  பான்y: pan-y,
+  பான்மே: pan-up,
+  பான்கீ: pan-down,
+  பிஞ்சுபெரிதாக்கு: pinch-zoom,
+  கையாளுதல்: manipulation
+);
+
+@include generate-utilities(touch-action, தொசெ, $touch-actions);
+
+// User Select Utilities (பயனர் தேர்வு)
+$user-selects: (
+  இல்லை: none,
+  உரை: text,
+  அனைத்தும்: all,
+  தானியங்கி: auto
+);
+
+@include generate-utilities(user-select, பதே, $user-selects);
+
+// Will Change Utilities (மாறும்)
+$will-changes: (
+  தானியங்கி: auto,
+  உருள்: scroll,
+  உள்ளடக்கங்கள்: contents,
+  மாற்றம்: transform
+);
+
+@include generate-utilities(will-change, மாறு, $will-changes);

@@ -1,0 +1,133 @@
+// ===========================================
+// Transition Utilities (மாற்றம் பயன்பாடுகள்)
+// ===========================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Transition Property Utilities (மாற்றம் பண்பு)
+$transition-properties: (
+  இல்லை: none,
+  அனைத்தும்: all,
+  default: (color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter),
+  நிறங்கள்: (color, background-color, border-color, text-decoration-color, fill, stroke),
+  ஒளிபுகாமை: opacity,
+  நிழல்: box-shadow,
+  மாற்றம்: transform
+);
+
+@each $key, $value in $transition-properties {
+  @if $key == default {
+    .மாற் {
+      transition-property: $value;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+  } @else if $key == அனைத்தும் {
+    .மாற்-#{$key} {
+      transition-property: $value;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+  } @else if $key == இல்லை {
+    .மாற்-#{$key} {
+      transition-property: $value;
+    }
+  } @else {
+    .மாற்-#{$key} {
+      transition-property: $value;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+    }
+  }
+}
+
+// Transition Duration Utilities (மாற்றம் கால அளவு)
+$transition-durations: (
+  75: 75ms,
+  100: 100ms,
+  150: 150ms,
+  200: 200ms,
+  300: 300ms,
+  500: 500ms,
+  700: 700ms,
+  1000: 1000ms
+);
+
+@include generate-utilities(transition-duration, மாகா, $transition-durations);
+
+// Transition Timing Function Utilities (மாற்றம் நேர செயல்பாடு)
+$transition-timing-functions: (
+  நேர்கோடு: linear,
+  உள்ளே: cubic-bezier(0.4, 0, 1, 1),
+  வெளியே: cubic-bezier(0, 0, 0.2, 1),
+  உள்ளேவெளியே: cubic-bezier(0.4, 0, 0.2, 1)
+);
+
+@include generate-utilities(transition-timing-function, மாநே, $transition-timing-functions);
+
+// Transition Delay Utilities (மாற்றம் தாமதம்)
+$transition-delays: (
+  75: 75ms,
+  100: 100ms,
+  150: 150ms,
+  200: 200ms,
+  300: 300ms,
+  500: 500ms,
+  700: 700ms,
+  1000: 1000ms
+);
+
+@include generate-utilities(transition-delay, மாதா, $transition-delays);
+
+// Animation Utilities (அனிமேஷன் பயன்பாடுகள்)
+.அனி-இல்லை {
+  animation: none;
+}
+
+.அனி-சுழல் {
+  animation: spin 1s linear infinite;
+}
+
+.அனி-பிங் {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.அனி-துடிப்பு {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.அனி-துள்ளல் {
+  animation: bounce 1s infinite;
+}
+
+// Animation Keyframes
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
