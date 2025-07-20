@@ -6,16 +6,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.1.0] 2025-07-20
+
+### Added FolloWing Color Patteles
+- `மயில்பச்சை` (Teal) - 50 to 900 shades
+- `நீர்நிறம்` (Cyan) - 50 to 900 shades
+- `மரகதம்` (Emerald) - 50 to 900 shades
+- `எலுமிச்சைப்பச்சை` (Lime) - 50 to 900 shades
+- `வானநீலம்` (Sky) - 50 to 900 shades
+- `இண்டிகோ` (Indigo) - 50 to 900 shades
+- `ரோஜா` (Rose) - 50 to 900 shades
+- `கற்குமிழ்மஞ்சள்` (Amber) - 50 to 900 shades
+- `சாம்பல்` (Neutral) - 50 to 900 shades
+- `கல்நிறம்` (Stone) - 50 to 900 shades
 
 
-
-
-
-
-
-
-
-## [1.0.0] - 2024-01-XX
+## [1.0.0] - 2025-07-19
 
 ### Added
 - Initial release of அழிவிலி-CSS Framework
