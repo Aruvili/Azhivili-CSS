@@ -1,38 +1,63 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+about: Report a bug in அழிவிலி-CSS Framework
+title: "[Bug]: "
+labels: bug, needs-triage
+assignees: BalaPriyan
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+## 🐛 Bug Report
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+Thank you for reporting a bug in **அழிவிலி-CSS Framework**!
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+---
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+### **Description**
+<!-- A clear and concise description of the bug -->
+_Example: Describe the bug..._
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+---
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+### **Steps to Reproduce**
+<!-- Steps to reproduce the behavior -->
+_Example:_
+1. Add class `'...'`
+2. Apply to element `'...'`
+3. See error
 
-**Additional context**
-Add any other context about the problem here.
+---
+
+### **Expected Behavior**
+<!-- What you expected to happen -->
+_Example: Expected..._
+
+---
+
+### **Actual Behavior**
+<!-- What actually happened -->
+_Example: Actually..._
+
+---
+
+### **Framework Version**
+<!-- Which version of அழிவிலி-CSS are you using? -->
+_Example: 1.0.0_
+
+---
+
+### **Browsers**
+<!-- Which browsers are affected? -->
+- [ ] Chrome
+- [ ] Firefox
+- [ ] Safari
+- [ ] Edge
+- [ ] Opera
+- [ ] Other
+
+---
+
+### **Code Sample**
+<!-- Minimal code sample that reproduces the issue -->
+```html
+<div class="ப-4 நி-சிவப்பு-500">Example</div>
