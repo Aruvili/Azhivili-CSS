@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `இண்டிகோ` (Indigo) - 50 to 900 shades
 - `ரோஜா` (Rose) - 50 to 900 shades
 - `கற்குமிழ்மஞ்சள்` (Amber) - 50 to 900 shades
-- `சாம்பல்` (Neutral) - 50 to 900 shades
+- `நடுநிறம்` (Neutral) - 50 to 900 shades
 - `கல்நிறம்` (Stone) - 50 to 900 shades
 
 
