@@ -124,6 +124,19 @@ Use breakpoint prefixes for responsive design:
 - `ஊதா` (Purple) - 50 to 900 shades
 - `இளஞ்சிவப்பு` (Pink) - 50 to 900 shades
 - `சாம்பல்` (Gray) - 50 to 900 shades
+- `மயில்பச்சை` (Teal) - 50 to 900 shades
+- `நீர்நிறம்` (Cyan) - 50 to 900 shades
+- `மரகதம்` (Emerald) - 50 to 900 shades
+- `எலுமிச்சைப்பச்சை` (Lime) - 50 to 900 shades
+- `வானநீலம்` (Sky) - 50 to 900 shades
+- `இண்டிகோ` (Indigo) - 50 to 900 shades
+- `ரோஜா` (Rose) - 50 to 900 shades
+- `கற்குமிழ்மஞ்சள்` (Amber) - 50 to 900 shades
+- `சாம்பல்` (Neutral) - 50 to 900 shades
+- `கல்நிறம்` (Stone) - 50 to 900 shades
+- `கருப்பு` (Black) - No shade
+- `வெள்ளை` (White) - No shade
+- `வெளிப்படையான` (transparent) - No need for shade
 
 ### Usage Examples
 ```html

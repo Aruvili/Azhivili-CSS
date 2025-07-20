@@ -1,6 +1,6 @@
 {
   "name": "azhivili-css",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A comprehensive utility-first CSS framework with Tamil class names - தமிழ் வகுப்பு பெயர்களுடன் கூடிய விரிவான பயன்பாட்டு-முதல் CSS கட்டமைப்பு",
   "main": "dist/azhivili-css.css",
   "style": "dist/azhivili-css.css",
