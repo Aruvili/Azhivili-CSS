@@ -37,7 +37,7 @@ Download the latest release from [GitHub Releases](https://github.com/Aruvili/az
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>அழிவிலி-CSS Framework</title>
-    <link rel="stylesheet" href="path/to/azhivili-css.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/azhivili-css/dist/azhivili-css.min.css">
 </head>
 <body>
     <div class="ப-4 ம-2 நி-சிவப்பு-500 பி-நீலம்-100">
