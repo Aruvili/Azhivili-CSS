@@ -6,9 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [1.1.0] 2025-07-20
+## [Unreleased]
 
-### Added FolloWing Color Patteles
+### Planned
+- Dark mode utilities
+- Animation library expansion
+- Component library
+- Figma design system
+- VS Code extension
+- CLI tool for customization
+
+## [1.1.0] - 2025-07-20
+
+### Added following color palettes
 - `மயில்பச்சை` (Teal) - 50 to 900 shades
 - `நீர்நிறம்` (Cyan) - 50 to 900 shades
 - `மரகதம்` (Emerald) - 50 to 900 shades
@@ -56,13 +66,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Firefox 85+
 - Safari 14+
 - Edge 88+
-
-## [Unreleased]
-
-### Planned
-- Dark mode utilities
-- Animation library expansion
-- Component library
-- Figma design system
-- VS Code extension
-- CLI tool for customization

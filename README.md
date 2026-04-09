@@ -207,4 +207,4 @@ For detailed documentation, visit: [Documentation](https://github.com/Aruvili/az
 
 - GitHub Issues: [Report bugs or request features](https://github.com/Aruvili/azhivili-css/issues)
 - Discussions: [Community discussions](https://github.com/Aruvili/azhivili-css/discussions)
-- Discord [Discord discussion](https://discord.gg/CcsRe8gWRV)
+- Discord: [Discord discussion](https://discord.gg/CcsRe8gWRV)
